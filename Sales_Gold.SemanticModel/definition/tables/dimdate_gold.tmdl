@@ -1,0 +1,69 @@
+table dimdate_gold
+	lineageTag: 007ed19c-0899-4b54-ac2a-b8a3077f31d9
+	sourceLineageTag: [Sales].[dimdate_gold]
+
+	column OrderDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d0a98116-f2d4-4188-9689-9260d66551ad
+		sourceLineageTag: OrderDate
+		summarizeBy: none
+		sourceColumn: OrderDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column Day
+		dataType: int64
+		formatString: 0
+		lineageTag: ceed036e-33ed-468a-bdd5-8d912704fac5
+		sourceLineageTag: Day
+		summarizeBy: none
+		sourceColumn: Day
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		dataType: int64
+		formatString: 0
+		lineageTag: 905eda9b-ea4a-4860-9518-ea0e4ead7678
+		sourceLineageTag: Month
+		summarizeBy: none
+		sourceColumn: Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: cdb283a5-158b-4434-8a10-dcff5f91df5b
+		sourceLineageTag: Year
+		summarizeBy: none
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column mmmyyyy
+		dataType: string
+		lineageTag: 7704cad1-3245-447e-bb14-8eacbda77e26
+		sourceLineageTag: mmmyyyy
+		summarizeBy: none
+		sourceColumn: mmmyyyy
+
+		annotation SummarizationSetBy = Automatic
+
+	column yyyymm
+		dataType: string
+		lineageTag: 9d04a9c8-c00d-4588-8565-3db749d38bec
+		sourceLineageTag: yyyymm
+		summarizeBy: none
+		sourceColumn: yyyymm
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dimdate_gold = entity
+		mode: directLake
+		source
+			entityName: dimdate_gold
+			schemaName: Sales
+			expressionSource: 'DirectLake - Sales'
+

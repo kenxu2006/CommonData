@@ -1,0 +1,39 @@
+table dimproduct_gold
+	lineageTag: e83905cc-3e49-4709-83be-3db7ec00cdd0
+	sourceLineageTag: [Sales].[dimproduct_gold]
+
+	column ItemName
+		dataType: string
+		lineageTag: c036b9ff-eb87-4700-b034-09fe0a0c72a0
+		sourceLineageTag: ItemName
+		summarizeBy: none
+		sourceColumn: ItemName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemID
+		dataType: int64
+		formatString: 0
+		lineageTag: 17a49a79-17b9-464e-a7fb-b07fdd56d5e0
+		sourceLineageTag: ItemID
+		summarizeBy: none
+		sourceColumn: ItemID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemInfo
+		dataType: string
+		lineageTag: 8c14b612-ff25-4997-85c4-fb6cdda06d2e
+		sourceLineageTag: ItemInfo
+		summarizeBy: none
+		sourceColumn: ItemInfo
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dimproduct_gold = entity
+		mode: directLake
+		source
+			entityName: dimproduct_gold
+			schemaName: Sales
+			expressionSource: 'DirectLake - Sales'
+
